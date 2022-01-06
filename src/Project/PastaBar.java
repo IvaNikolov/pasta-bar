@@ -12,4 +12,15 @@ public class PastaBar {
 				"Pecurke", "Kutija" };
 		int[] prices = { 50, 60, 120, 120, 140, 100, 100, 100, 80, 50, 80, 80, 80, 50, 50, 20 };
 	}
+	
+	
+	public static int findIngredient(String[] ingredients, String ingredientName) {
+		for (int i = 0; i < ingredients.length; i++) {
+			if (ingredients[i].equals(ingredientName)) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
 }
