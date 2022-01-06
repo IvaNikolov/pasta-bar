@@ -11,6 +11,32 @@ public class PastaBar {
 				"Piletina", "4 sira", "Dimljeni sir", "Parmezan", "Pavlaka", "Pesto sos", "Napolitana", "Povrce mix",
 				"Pecurke", "Kutija" };
 		int[] prices = { 50, 60, 120, 120, 140, 100, 100, 100, 80, 50, 80, 80, 80, 50, 50, 20 };
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Izvolite !!");
+		
+		System.out.println("Izaberite sastojak za pastu:");
+		String ingredientName = s.nextLine();
+		
+		int suma = 0;
+
+		while (!(ingredientName.equals("Poruci"))) {
+			int indexOfPriceArray = findIngredient(ingredients, ingredientName); //this method is returning index
+			suma = prices[indexOfPriceArray] + suma;
+			
+			System.out.println("Izaberite sastojak za pastu:");
+			ingredientName = s.nextLine();  
+		}
+		
+		System.out.println("Unesite vas broj telefona:");
+		String phone = s.next();
+		if (isRegularCustomer(regularCustomers, phone)) {
+			System.out.println("Vasa pasta iznosi:" + suma*90/100 + "RSD");
+		} else {
+			System.out.println("Vasa pasta iznosi:" + suma + "RSD");
+		}
+		System.out.println("Prijatno");
 	}
 	
 	
